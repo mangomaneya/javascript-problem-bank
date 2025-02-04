@@ -14,7 +14,17 @@
  * @returns {string[]} 조작 후의 할 일 배열
  */
 
-function manageTaskList(tasks, newTask) {}
+function manageTaskList(tasks, newTask) {
+    console.log(tasks);
+    tasks.pop();
+    console.log(tasks);
+    tasks.push(newTask);
+    if(tasks.length > 0){
+        tasks[0] = "Updated Task"
+    }
+    console.log(tasks);
+    return tasks;
+}
 
 // export를 수정하지 마세요.
 export { manageTaskList };

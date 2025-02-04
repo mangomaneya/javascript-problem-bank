@@ -7,6 +7,8 @@
  */
 
 function reassignConst() {
+  const val = "선언";
+  val = "재할당"
   // TODO
 }
 
