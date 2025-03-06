@@ -16,12 +16,28 @@
 let topKeywordsCache = [];
 
 function updateTopKeywords(keywords) {
-  // TODO
+  // 많이 검색된 순으로 상위 10개 -> sort, reduce,
+  // 중복 키워드는 1회만 노출 -> Map, Set,
+  topKeywordsCache = [];
+  const tempMap = keywords.reduce((map, word) => {
+    return map.set(word, (map.get(word) || 0) + 1);
+  }, new Map());
+  const tempArray = Array.from(tempMap)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 10);
+  for (const e of tempArray) {
+    topKeywordsCache.push(e[0]);
+  }
+  console.log("topKeywordsCache", topKeywordsCache);
+  // 기존 캐시를 모두 지우고, 새로운 결과만 캐시에 저장하세요 -> clear, = [...newArray]
+  return topKeywordsCache;
+  //https://nukw0n-dev.tistory.com/13
 }
 
 function getTopKeywords() {
   // TODO
-  return [];
+  // 현재 저장된 상위 10개 키워드를 반환하세요.
+  return topKeywordsCache;
 }
 
 // export를 수정하지 마세요.

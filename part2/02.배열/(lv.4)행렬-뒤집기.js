@@ -30,8 +30,27 @@
  * @returns {number[][]} 90도 회전된 새로운 배열
  */
 
+// const result = Array.from({ length: 3 }, () => Array(3).fill[0]);
+// const n = array.length;
+// for (let i = 0; i < n; i++) {
+//   for (let j = 0; j < n; j++) {
+//     result[j][n - 1 - i] = matrix[i][j];
+//   }
+// }
+
+// matrix[0].map((val, index) => matrix.map((row) => row[index]).reverse());
+
 //TODO: 2차원 배열을 90도 회전한 새로운 배열을 반환하는 함수를 작성하세요.
-function rotateMatrix(matrix) {}
+function rotateMatrix(matrix) {
+   const n = matrix.length;
+   const result = Array.from({ length: n }, () => Array(n).fill(0));
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < n; j++) {
+      result[j][n - 1 - i] = matrix[i][j];
+    }
+  }
+  return result;
+}
 
 // export 를 수정하지 마세요.
 export { rotateMatrix };

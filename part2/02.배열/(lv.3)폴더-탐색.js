@@ -18,7 +18,19 @@
  */
 
 // TODO: getAllFolderNames 함수를 작성하세요.
-function getAllFolderNames(folder) {}
+function getAllFolderNames(folder) {
+
+  let tempArr = [];
+  tempArr.push(folder.name)
+
+  if(folder.subFolders){
+    for(const subFolder of folder.subFolders){
+        tempArr.push(...getAllFolderNames(subFolder))
+    }
+  }
+  console.log("tempArr", tempArr);
+  return tempArr;
+}
 
 // export 를 수정하지 마세요.
 export { getAllFolderNames };
